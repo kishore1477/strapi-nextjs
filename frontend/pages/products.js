@@ -5,7 +5,7 @@ const Products = (props) => {
   return (
     <div className="container mx-auto">
   <section className="text-gray-600 body-font" style={{userSelect: 'auto'}}>
-    <div className="container px-5 py-24 mx-auto" style={{userSelect: 'auto'}}>
+    <div className="container px-5 py-0 md:py-24 mx-auto" style={{userSelect: 'auto'}}>
       <div className="flex flex-wrap w-full mb-20" style={{userSelect: 'auto'}}>
         <div className="lg:w-1/2 w-full mb-6 lg:mb-0" style={{userSelect: 'auto'}}>
           <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900" style={{userSelect: 'auto'}}>Welcome to MyShop {props.name}</h1>
@@ -18,7 +18,7 @@ const Products = (props) => {
         {props.products.data.map((item)=>{
 
   return <div key= {item.attributes.slug} className="xl:w-1/4 md:w-1/2 m-4" style={{userSelect: 'auto'}}>
- <div className="bg-gray-100 p-3 rounded-lg" style={{userSelect: 'auto'}}>
+ <div className="bg-gray-100 md:p-3 rounded-lg" style={{userSelect: 'auto'}}>
    <img className=" rounded w-full mb-6" src={item.attributes.image.data && item.attributes.image.data.attributes.name} alt="content" style={{userSelect: 'auto'}} />
    <h3 className="tracking-widest text-indigo-500 text-xl font-medium title-font " style={{userSelect: 'auto'}}>{item.attributes.title}</h3>
    <h2 className="text-lg text-gray-900 font-medium title-font mb-4" style={{userSelect: 'auto'}}>{item.attributes.category}</h2>

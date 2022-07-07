@@ -2,7 +2,7 @@ import Link from 'next/link'
 import React from 'react'
 import { FcShop } from 'react-icons/fc';
 
-const Navbar = () => {
+const Navbar = ({cart}) => {
     return (
   <header className="text-gray-600 body-font md:shadow-lg" style={{userSelect: 'auto'}}>
   <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center" style={{userSelect: 'auto'}}>
@@ -17,6 +17,7 @@ const Navbar = () => {
       <Link href='/products'><a className="mr-5 hover:text-gray-900">Products</a></Link>
       <Link href='/about'><a className="mr-5 hover:text-gray-900">About</a></Link>
       <Link href='/contact'><a className="mr-5 hover:text-gray-900">Contact</a></Link>
+      <Link href='/checkout'><a className="mr-5 hover:text-gray-900">cart({cart.length})</a></Link>
      
     </nav>
     <button className=" inline-flex items-center bg-blue-400 border-0 px-2 py-1 md:px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0" style={{userSelect: 'auto'}}>Login
