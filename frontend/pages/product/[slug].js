@@ -24,7 +24,7 @@ const Slug = ({product, addToCart}) => {
   <section className="text-gray-600 body-font overflow-hidden " style={{userSelect: 'auto'}}>
     <div className="container px-5 py-0 md:py-24 mx-auto" style={{userSelect: 'auto'}}>
       <div className="lg:w-4/5 mx-auto flex flex-wrap" style={{userSelect: 'auto'}}>
-        <img alt="ecommerce" className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src='https://dummyimage.com/400X400' style={{userSelect: 'auto'}} />
+        <img alt="ecommerce" className="lg:w-1/2 w-70 mx-auto h-35 lg:h-auto md:w-41 md:p-20 md:h-64 object-center rounded" src={pro.attributes.image.data.attributes.name} style={{userSelect: 'auto'}} />
         <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0" style={{userSelect: 'auto'}}>
           <h2 className="text-sm title-font text-gray-500 tracking-widest" style={{userSelect: 'auto'}}>myShop</h2>
           <h1 className="text-gray-900 text-3xl title-font font-medium mb-1" style={{userSelect: 'auto'}}>
@@ -98,7 +98,7 @@ const Slug = ({product, addToCart}) => {
 
             
             <button onClick={()=>{router.push('/checkout')}} className="flex ml-auto text-white bg-indigo-500 border-0  md:py-1 text-center md:px-3 mx-2 px-2 focus:outline-none hover:bg-indigo-600 rounded" style={{userSelect: 'auto'}}>Checkout</button>
-            <button onClick={()=>addToCart(pro.attributes.slug,1, pro.attributes.price)} className="flex ml-auto text-white bg-indigo-500 border-0 py-2 mx-2 px-2 focus:outline-none hover:bg-indigo-600 rounded" style={{userSelect: 'auto'}}>Add to Cart</button>
+            <button onClick={()=>addToCart(pro.attributes.title,1, pro.attributes.price)} className="flex ml-auto text-white bg-indigo-500 border-0 py-2 mx-2 px-2 focus:outline-none hover:bg-indigo-600 rounded" style={{userSelect: 'auto'}}>Add to Cart</button>
             <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4" style={{userSelect: 'auto'}}>
          
               <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} className="w-5 h-5" viewBox="0 0 24 24" style={{userSelect: 'auto'}}>
@@ -122,7 +122,7 @@ const Slug = ({product, addToCart}) => {
 
 export async function getServerSideProps(context) {
   let {slug} = context.query
-  let products =  await fetch(`http://localhost:1337/api/products?filters[slug]=${slug}`,{
+  let products =  await fetch(`http://localhost:1337/api/products?filters[slug]=${slug}&populate=*`,{
     method: 'GET', // or 'PUT'
     headers: {
       Authorization: "Bearer 9353495ed75ea05210c002aef468ef9caa1e8aac710ec506e0cd15d082d3abb11d5c20aee5b830f8affd39c8874002cd416a9834d1487692be91563bffe932244d8522b182a4c6ea095dee1a5837b8373c4c825655c78d76bafdc263e1953b3886e41443f34678c2099914c9b2a79ee4048a8871622347282d610288d41565e3"
